@@ -4,8 +4,7 @@ from . import models, forms
 
 # VIEWS ITEM/INDEX # VIEWS ITEM/INDEX # VIEWS ITEM/INDEX
 def index(req):
-	# sale = models.Sale.objects.all()
-	prod = models.Prod.objects.all()
+	prod = models.Prod.objects.all().order_by('cate')
 	return render(req, 'products/index.html', {
 		'data' : prod,
 		})
@@ -15,6 +14,11 @@ def category(req):
 	return render(req, 'category/category.html', {
 		'data' : cate,
 		})
+
+def stok_up(req, stok_stok):
+	stok = sales_models.Sale.objects.get(pk=stok_stok)
+	models.Prod.objects.update(stok=stok)
+	return redirect('/products')
 
 def stok_in(req):
 	form = forms.Stok()
@@ -77,21 +81,14 @@ def stok_in_input(req):
 		})
 
 def update(req, id):
-	form = forms.Prod()
+	products = models.Prod.objects.filter(pk=id).first()
+	form = forms.Prod(instance=products)
 
-	if req.GET:
-		form = forms.Prod(req.GET)
+	if req.POST:
+		form = forms.Prod(req.POST, instance=products)
 		if form.is_valid():
-			form.update()
 			form.save()
 		return redirect('/products')
-	# if req.POST:
-	# 	models.Prod.objects.filter(pk=id).update(
-	# 		kode = req.POST['kode'],
-	# 		name = req.POST['name'],
-	# 		price = req.POST['price'],
-	# 		stok = req.POST['stok'])
-	# 	return redirect('/products')
 
 	prod = models.Prod.objects.filter(pk=id).first()
 	return render(req, 'products/update.html', {

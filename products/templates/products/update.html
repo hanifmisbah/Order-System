@@ -27,7 +27,8 @@
 				<form method="POST" action="" class="mt-3">
 				{% csrf_token %}
 					<div class="form-group">
-						{{form.as_ul}}
+						{% load crispy_forms_tags %}
+						{{form|crispy}}
 				    	<!-- <label>Kode</label>
 					    <input type="number" class="form-control w-50 mb-3"  name="kode" value="{{data.kode}}">
 				    	<label>Name</label>

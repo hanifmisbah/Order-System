@@ -12,7 +12,7 @@ class Cate(ModelForm):
 		model=models.Cate
 		exclude=[]
 
-class Stok(ModelForm):
-	class Meta:
-		model=models.Stok
-		exclude=[]
+# class Stok(ModelForm):
+# 	class Meta:
+# 		model=models.Stok
+# 		exclude=[]

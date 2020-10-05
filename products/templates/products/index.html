@@ -6,22 +6,12 @@
 	<head>
 		<title>Halaman Produk</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<!-- <meta name = "viewport" content = "width = device-width, initial-scale = 1">    
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.4/css/materialize.min.css">
-	    <link rel = "stylesheet"
-	       href = "https://fonts.googleapis.com/icon?family=Material+Icons">
-	    <link rel = "stylesheet"
-	       href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-	    <script type = "text/javascript"
-	       src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
-	    <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
-	    </script>  -->
-	</head>
 		<link href="{% static 'css/dist/css/styles.css' %}" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+	</head>
 	<body>
-				<div class="container-fluid">
+		<div class="container-fluid">
 <!-- 	<a type="button" class="btn btn-primary" href="/category/input_category">CATEGORY</a>
 	<a type="button" class="btn btn-primary" href="/units/input">UNITS</a> -->
 		<div class="row">
@@ -33,8 +23,7 @@
 								<li class="breadcrumb-item active">Halaman Produk</li>
 							</ol>
 				<a type="button" class="btn btn-primary" href="/products/input">Tambah</a>
-				<a type="button" class="btn btn-danger" href="/">Kembali</a>
-				
+				<a type="button" class="btn btn-danger" href="/">Kembali</a>				
 				<div class="card mb-4">
 					<div class="card-header">
 						<i class="fas fa-table mr-1"></i>
@@ -49,31 +38,28 @@
 										<th>Kode</th>
 										<th>Nama</th>
 										<TH>Stok</TH>
-										<th>harga</th>
+										<th>Harga</th>
 										<th>actions</th>
 										
 									</tr>
 								</thead>
 						</div>
-				  	<tbody>
-				  		{% for d in data %}
-				    	<tr>
-				      		<th>{{forloop.counter}}</th>
-				      		<td>{{d.cate.name_c}}</td>
-				      		<td>{{d.kode}}</td>
-							<td>{{d.name}}</td>
-							<td>{{d.stok}}</td>
-	<!-- 			      		<td>#//#</td>
-				      		<td>#//#</td> -->
-				      		<td>Rp. {{d.price}}</td>
-				      		<!-- <td>#//#</td> -->
-				      		<td>
-					    		<a type="button" class="btn btn-primary" href="{{d.id}}/update"><i class="fas fa-exchange-alt"></i></a>
-					    		<a type="button" class="btn btn-danger" href="{{d.id}}/delete"><i class="far fa-trash-alt"></i></a>	
-				      		</td>
-				    	</tr>
-				    	{% endfor %}
-				  	</tbody>
+							  	<tbody>
+							  		{% for d in data %}
+							    	<tr>
+							      		<th>{{forloop.counter}}</th>
+							      		<td>{{d.cate.name_c}}</td>
+							      		<td>{{d.kode}}</td>
+										<td>{{d.name}}</td>
+										<td>{{d.stok}}</td>
+							      		<td>Rp. {{d.price}}</td>
+							      		<td>
+								    		<a type="button" class="btn btn-primary" href="{{d.id}}/update"><i class="fas fa-exchange-alt"></i></a>
+								    		<a type="button" class="btn btn-danger" href="{{d.id}}/delete"><i class="far fa-trash-alt"></i></a>	
+							      		</td>
+							    	</tr>
+							    	{% endfor %}
+							  	</tbody>
 				</table>
 			</div>	
 		</div>	

@@ -17,6 +17,8 @@
 <!-- 				<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item active">Halaman Belanja</li>
 					</ol> -->
+					<a type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambah" href="/sales/index">Tambah</a>
+					<a type="button" class="btn btn-danger" href="/">Kembali</a>
 				<main>
 					<div class="row">
 						<div class="col-xl">
@@ -70,8 +72,6 @@
 					</div>
 				<!-- <a type="button" class="btn btn-danger" href="/sales/print">Beli</a> -->
 					<td>
-						<a type="button" class="btn btn-primary" data-toggle="modal" data-target="#tambah" href="/sales/index">Tambah</a>
-						<a type="button" class="btn btn-danger" href="/">Kembali</a>
 					</td>
 				</main>
 			</div>
@@ -97,9 +97,6 @@
 	      </div>
 	      <div class="modal-body">
 			<div class="card mb-4">
-				<div class="card-header">
-					<i class="fas fa-table mr-1"></i>	
-				</div>
 				<div class="card-body">
 					<!-- <div class="table-responsive"> -->
 						<center>
@@ -121,42 +118,38 @@
 	    </div>
 	  </div>
 	</div>
-
+	
 	<!-- modal tambah -->
 	<div class="modal fade" id="tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Print Struck</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-			<div class="card mb-4">
-				<div class="card-header">
-					<i class="fas fa-table mr-1"></i>	
-				</div>
-				<div class="container">
-					<div class="row">
-					    <div class="col-xl">
-							{% load crispy_forms_tags %}
-							<form method="POST" action="" class="mt-3">
-							{% csrf_token %}
-								{{form|crispy}}
-								<button type="submit" class="btn btn-primary mt-2">Tambah</button>
-								<a type="button" class="btn btn-danger mt-2 ml-2" href="/">Kembali</a>
-							</form>
-						<div>
+	    <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      	<div class="modal-header">
+		        	<h5 class="modal-title" id="exampleModalLabel">Tambah</h5>
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          		<span aria-hidden="true">&times;</span>
+		        	</button>
+		      	</div>
+		      	<div class="modal-body">
+					<div class="card mb-4">
+						<div class="container">
+							<div class="row">
+							    <div class="col-xl">
+								<form method="POST" action="" class="mt-3">
+									{% load crispy_forms_tags %}
+									{% csrf_token %}
+									{{form|crispy}}
+									<button type="submit" class="btn btn-primary mt-2">Tambah</button>
+									</form>
+								<div>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
-	      </div>
+		      	</div>
+		      	<!-- <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        <button type="button" class="btn btn-primary">Save changes</button>
+		      	</div> -->
+		    </div>
 	    </div>
-	  </div>
-	</div>
+	</div>	
 </html>

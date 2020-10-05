@@ -6,12 +6,12 @@
 	<head>
 		<title>Halaman Stok In</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	</head>
-	<link href="{% static 'css/dist/css/styles.css' %}" rel="stylesheet" />
+		<!-- <link href="{% static 'css/dist/css/styles.css' %}" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script> -->
+	</head>
 	<body>
-				<div class="container-fluid">
+		<div class="container-fluid">
 <!-- 	<a type="button" class="btn btn-primary" href="/category/input_category">CATEGORY</a>
 	<a type="button" class="btn btn-primary" href="/units/input">UNITS</a> -->
 		<div class="row">
@@ -23,48 +23,56 @@
 							<li class="breadcrumb-item active">Halaman Stok In</li>
 						</ol>
 					</main>
-				</div>
-				<form method="POST" action="" class="mt-3">
-				{% csrf_token %}
-					{{form}}
-					<button type="submit" class="btn btn-primary mt-2">Tambah</button>
-					<a type="button" class="btn btn-danger mt-2 ml-2" href="/products">Kembali</a>
-				</form>	
-<!-- 				<a type="button" class="btn btn-primary" href="/products/input">Tambah</a>
-				<a type="button" class="btn btn-danger" href="/">Kembali</a> -->				
-				<div class="card mb-4">
-					<div class="card-header">
-						<i class="fas fa-table mr-1"></i>
-					</div>
-					<div class="card-body">
-						<div class="table-responsive">
-							<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-								<thead>
-									<tr>
-										<th>#</th>
-										<th>Nama</th>
-										<th>Quantity</th>
-										<th>Actions</th>
-										
-									</tr>
-								</thead>
-				  				<tbody>
-							  		{% for d in data %}
-							    	<tr>
-							      		<th>{{forloop.counter}}</th>
-							      		<td>{{d.name}}</td>
-							      		<td>{{d.qty}}</td>
-							      		<td>
-								    		<a type="button" class="btn btn-primary" href="{{d.id}}/update"><i class="fas fa-exchange-alt"></i></a>
-								    		<a type="button" class="btn btn-danger" href="{{d.id}}/delete"><i class="far fa-trash-alt"></i></a>	
-							      		</td>
-							    	</tr>
-				    				{% endfor %}
-				  				</tbody>
-							</table>
+					<div class="row">
+						<div class="col-xl">
+							<div class="card mb-4">
+								<div class="card-header">
+									<form method="POST" action="" class="mt-3">
+										{% csrf_token %}
+										{{form}}
+										<button type="submit" class="btn btn-primary mt-2">Tambah</button>
+										<a type="button" class="btn btn-danger mt-2 ml-2" href="/products">Kembali</a>
+									</form>
+								</div>
+							</div>
 						</div>
+					</div>
+	<!-- 				<a type="button" class="btn btn-primary" href="/products/input">Tambah</a>
+					<a type="button" class="btn btn-danger" href="/">Kembali</a> -->				
+					<div class="card mb-4">
+						<div class="card-header">
+							<i class="fas fa-table mr-1"></i>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Nama</th>
+											<th>Quantity</th>
+											<th>Actions</th>
+											
+										</tr>
+									</thead>
+					  				<tbody>
+								  		{% for d in data %}
+								    	<tr>
+								      		<th>{{forloop.counter}}</th>
+								      		<td>{{d.name}}</td>
+								      		<td>{{d.qty}}</td>
+								      		<td>
+									    		<a type="button" class="btn btn-primary" href="{{d.id}}/update"><i class="fas fa-exchange-alt"></i></a>
+									    		<a type="button" class="btn btn-danger" href="{{d.id}}/delete"><i class="far fa-trash-alt"></i></a>	
+								      		</td>
+								    	</tr>
+					    				{% endfor %}
+					  				</tbody>
+								</table>
+							</div>
+						</div>	
 					</div>	
-				</div>	
+				</div>
 			</div>	
 		</div>	
 	</div>	

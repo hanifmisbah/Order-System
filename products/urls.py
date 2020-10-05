@@ -11,6 +11,7 @@ urlpatterns = [
 	path('<id>/delete', views.delete),
 	path('category/<id>/delete', views.delete_c),
 	path('<id>/update', views.update),
+	path('stok_up/<stok_stok>/', views.stok_up),
 	# path('category/category/', views.category), # CATEGORY # CATEGORY # CATEGORY
 	# path('category/input_category/', views.input_category),
 	# path('category/<id>/delete', views.delete_category),
