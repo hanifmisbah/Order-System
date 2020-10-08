@@ -137,3 +137,5 @@ STATICFILES_DIRS =[
     BASE_DIR + "/static",
     'var/www/static',
 ]
+
+USE_THOUSAND_SEPARATOR = True
