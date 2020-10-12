@@ -5,7 +5,7 @@ urlpatterns = [
 	path('', views.index),
 	path('transaksi/', views.transaksi),
 	path('input/', views.input),
-	path('<id>/', views.sale_detail),
+	path('print/', views.print),
 	path('<id>/delete', views.delete),
 	# path('<id>/update', views.update),
 	path('<id>/detail', views.detail),

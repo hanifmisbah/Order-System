@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    'widget_tweaks',
     'crispy_forms',
     'sales',
     'home',
@@ -62,7 +62,9 @@ ROOT_URLCONF = 'pos.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR + '/templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,9 +76,7 @@ TEMPLATES = [
         },
     },
 ]
-
-CRIPSY_TEMPLATES_FORMS = 'bootstrap4'
-
+CRISPY_TEMPLATES_PACK = 'bootstrap4'
 WSGI_APPLICATION = 'pos.wsgi.application'
 
 
